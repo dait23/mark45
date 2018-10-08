@@ -1,0 +1,33 @@
+// Here you can add other styles
+//
+// Catcha Styles
+
+.bg-splash{
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60%;
+  background: url(https://res.cloudinary.com/catcha/image/upload/v1534753993/bg_building_sa_copy.png) no-repeat bottom;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+.bg-footer{
+
+  width: 100%;
+  height: 30px;
+  position: fixed;
+  bottom: 15px;
+  text-align: center;
+   p {
+
+     font-family:'Roboto';
+     font-size: 13px;
+     color: #fff;
+     font-weight: 300;
+   }
+}

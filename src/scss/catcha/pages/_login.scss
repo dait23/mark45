@@ -1,0 +1,121 @@
+// Here you can add other styles
+//
+// Catcha Styles login
+//
+
+
+.input-avatar{
+   width: 50px;
+   height:50px;
+   background: $catcha-medium-black;
+   border-color: $catcha-medium-black;
+   color:'#fff'
+}
+
+.input-login{
+   height:50px;
+   background: $catcha-light-black;
+   border-color: $catcha-light-black;
+   color:'#fff'
+}
+
+.input-forgot{
+   height:50px;
+   background: $catcha-white;
+   border-color: $catcha-grey;
+   border-radius: 1.7px;
+   color:$catcha-medium-grey;
+   font-size: 16;
+   text-align: center;
+   margin-top: 30px;
+   margin-bottom:30px;
+}
+
+
+
+.button-login{
+  background-color: $catcha-green;
+  border-color: $catcha-green;
+  border-radius: 1.7px;
+  color: $white;
+
+  &:hover{
+    background-color: $catcha-green;
+    border-color: $catcha-green;
+    border-radius: 1.7px;
+    color: $white;
+  }
+
+}
+
+.button-forgot{
+  background-color: $catcha-green;
+  border-color: $catcha-green;
+  font-family: 'Roboto';
+  font-weight: 500;
+  border-radius: 1.7px;
+  font-size: 15px;
+  color: $white;
+  margin-bottom:30px;
+  &:hover{
+    background-color: $catcha-green;
+    border-color: $catcha-green;
+    border-radius: 1.7px;
+    color: $white;
+  }
+
+}
+
+
+.button-danger{
+  background-color: $catcha-red;
+  border-color: $catcha-red;
+  font-family: 'Roboto';
+  font-weight: 500;
+  border-radius: 1.7px;
+  font-size: 15px;
+  color: $white;
+  margin-bottom:30px;
+  &:hover{
+    background-color: $catcha-red;
+    border-color: $catcha-red;
+    border-radius: 1.7px;
+    color: $white;
+  }
+
+}
+
+.catcha-modal{
+  text-align: center;
+
+  h1{
+    color: $catcha-green;
+    font-size: 26px;
+    font-family: 'Roboto';
+    font-weight: 700;
+    text-align: 'center';
+
+
+  }
+
+  .black{
+    color: $catcha-shadow-black;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 13px;
+    margin-top: 15px;
+    margin-bottom:8px;
+  }
+
+  p{
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 15px;
+    margin-top: 8px;
+  }
+
+  .error{
+    color: $catcha-medium-grey;
+    margin-top: 8px;
+  }
+}

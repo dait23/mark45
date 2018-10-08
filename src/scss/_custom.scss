@@ -1,0 +1,50 @@
+// Here you can add other styles
+//
+// Catcha Styles
+
+@import "fkppi/pages/splash.scss";
+@import "fkppi/pages/login.scss";
+
+
+.bg-purple{
+
+background: #1b2b54;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #35285e, #1b2b54);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #35285e, #1b2b54); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.bg-brown{
+	background: $fkppi-brown;
+}
+
+html body .appx.flex-row.align-items-center {
+    height: 100vh;
+}
+
+
+.appx, app-dashboard, app-root {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+input:focus {
+    background-color: yellow;
+}
+
+
+.app {
+
+	background: $catcha-main-blue;
+}
+
+
+.app-header{
+
+	height: 100px;
+}
+
