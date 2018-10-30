@@ -20,7 +20,12 @@ import {
   ModalFooter,
   ModalHeader
 } from 'reactstrap';
+import ProgressButton from 'react-progress-button'
 import {MainApi, DevApi} from '../../../views/Api/';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+import MDSpinner from "react-md-spinner";
+
 
 class Login extends Component {
 
@@ -28,26 +33,79 @@ class Login extends Component {
     super(props);
     this.state = {
       modal: false,
+      loading:false,
       success: false,
       danger: false,
       username: "",
       password: "",
+      buttonState: '',
+      email:''
 
     };
 
     this.toggle = this.toggle.bind(this);
+     this.onForgotPass = this.onForgotPass.bind(this);
     this.toggleSuccess = this.toggleSuccess.bind(this);
+    this.toggleLoading = this.toggleLoading.bind(this);
+    this.toggleForgot = this.toggleForgot.bind(this);
     this.toggleDanger = this.toggleDanger.bind(this);
     this.onLoginPress = this.onLoginPress.bind(this);
 
   }
 
   toggle() {
+
     this.setState({
       modal: !this.state.modal,
     });
+
+    // setTimeout(() => {
+  
+    // this.setState({
+    //   modal: false,
+    // });
+
+    // }, 3000)
+    
+  }
+  //////
+
+
+  toggleLoading() {
+
+    this.setState({
+      loading: !this.state.loading,
+    });
+     
+     
+      setTimeout(() => {
+    
+       this.onLoginPress();
+
+      }, 2000)
+    
   }
 
+  toggleForgot() {
+
+    this.setState({
+      loading: !this.state.loading,
+    });
+     
+     this.onForgotPass();
+     
+      // setTimeout(() => {
+    
+      //  this.onForgotPass();
+
+      // }, 2000)
+    
+  }
+
+  ////
+
+
+////
   toggleSuccess() {
     this.setState({
       success: !this.state.success,
@@ -63,12 +121,148 @@ class Login extends Component {
   //////Login
 
 
+ // handleClick () {
+ //    this.toggle();
+ //    // make asynchronous call
+ //    setTimeout(() => {
+ //    }, 3000)
+ //  }
+
+
+
+
+// onSave(event) {
+//     event.preventDefault();
+//     console.log("onSave handler called");
+//     //event.onLoginPress();
+//   }
+
+
+// // handleKeyUp(event) {
+// //   if (event.keyCode == 13){
+
+// //     onLoginPress();
+// //   }
+// // }
+
+// /////
+
+// handleTest(e) {
+//       if (e.charCode == 13) {
+//         this.toggleLoading();
+//       }
+//       if (e.keyCode == 13) {
+//         this.toggleLoading();
+//        // alert('Enter... (KeyDown, use keyCode)');
+//       }
+//     }
+
+////
+
+onForgotPass(){
+
+    if(this.state.email === ''){
+
+       this.setState({
+                        loading: false,
+                      });
+       //console.log('username tidak boleh kosong')
+       toast.info("Email tidak boleh kosong !", {
+        autoClose: 2000
+      });
+
+     }else{
+
+        let email = this.state.email;
+
+        var url =  DevApi + 'user/requestpassword';
+        var that = this;
+
+
+        return fetch(url,{
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+      
+              },
+              body: JSON.stringify({
+
+                'email' : that.state.email,
+
+
+              }),
+        }).then((response) => {
+
+                //console.log(response);
+                that.setState({
+                      loading: false,
+
+                    });
+
+                if (response.status == '200') {
+                   
+                   this.toggleSuccess();
+                   this.setState({
+                        loading: false,
+                        modal: false,
+                      });
+
+                }else{
+
+                   toast.error("Email tidak terdaftar", {
+                      autoClose: 2000
+                    });
+
+                   this.setState({
+                      loading: false,
+
+                    });
+                }
+            });
+
+
+
+
+     }
+
+
+  }
+
+
+
+//////
+
   onLoginPress() {
 
-  let username = this.state.username;
+ if(this.state.username == ''){
+  this.setState({
+                        loading: false,
+                      });
+       //console.log('username tidak boleh kosong')
+       toast.info("username tidak boleh kosong !", {
+        autoClose: 2000
+      });
+     }
+
+
+  else if(this.state.password ==''){
+     this.setState({
+                        loading: false,
+                      });
+     toast.info("password tidak boleh kosong !", {
+        autoClose: 2000
+      });
+      //console.log('password tidak boleh kosong')
+     }
+
+  else{
+
+   
+   let username = this.state.username;
   let password = this.state.password;
   
-  var url =  DevApi + 'user/login';
+  var url =  DevApi + 'admin/login';
   var that = this;
   
   return fetch(url,{
@@ -87,27 +281,42 @@ class Login extends Component {
               }),
         }).then((response) => {
 
-                console.log(response.status);
+                //console.log(response.status);
 
                 if (response.status == '403') {
 
-                    console.log('Gagal Login');
+                   toast.error("Login Gagal , username / password tidak sama", {
+                      autoClose: 2000
+                    });
+
+                   this.setState({
+                      loading: false,
+                    });
+
+                    //console.log('Gagal Login');
                 }
                 if (response.status == '200') {
 
                    //console.log(response);
                    //that.saveKey(response.headers.map.authorization[0]);
 
-                    console.log(response.headers.get('Authorization'));
+                    //console.log(response.headers.get('Authorization'));
                     localStorage.setItem('Token', response.headers.get('Authorization'))
                     //this.props.history.replace('/')
-                     window.location.reload();
-                }
+                     //window.location.reload();
+                     this.setState({
+                        loading: false,
+                      });
+                     toast.success("Sukses Login !", {
+                        autoClose: 2000
+                      }, setTimeout("window.location.reload();", 2000));
+                            }
             });
 
 
 
 
+  }
 
      }
 
@@ -118,7 +327,9 @@ class Login extends Component {
 
   render() {
     return (
+
       <div className="appx flex-row align-items-center bg-brown" style={{paddingBottom:80}}>
+        <ToastContainer autoClose={2000} />
         <div className="bg-splash"></div>
         <Container>
 
@@ -168,6 +379,11 @@ class Login extends Component {
                          placeholder="Password" 
                          autoComplete="current-password" 
                          className="input-login"
+                         onKeyPress={(event) => {
+                          if (event.key === "Enter") {
+                            this.toggleLoading()
+                          }
+                        }}
                          value={this.state.password}
                          onChange={(e) => this.setState({password: e.target.value})}
                          />
@@ -175,16 +391,14 @@ class Login extends Component {
                       <Row style={{marginBottom:20}}>
                         <Col xs="6">
 
-                          <FormGroup check inline style={{paddingTop:5}}>
-                            <Input className="form-check-input" type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="option1" />
-                            <Label className="form-check-label" check htmlFor="inline-checkbox1" style={{color:'#ffbf20', fontSize:13, fontFamily:'Roboto',}}>Remember me</Label>
-                          </FormGroup>
+                          
                         </Col>
                         <Col xs="6" className="text-right">
                           <Button color="link" className="px-0" style={{color:'#ffbf20', fontSize:13, fontFamily:'Roboto',}} onClick={this.toggle}>Forgot password?</Button>
                         </Col>
                       </Row>
-                      <Button size="lg" block className="button-login" onClick={this.onLoginPress}>Sign In</Button>
+                      <Button size="lg" block className="button-login" onClick={this.toggleLoading}>Sign In</Button>
+                    
                     </Form>
 
             </Col>
@@ -198,8 +412,13 @@ class Login extends Component {
                   <h1>Forgot Password</h1>
                   <p>Hello there! Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                   <Form>
-                    <Input type="text" placeholder="Your e-mail address"  className="input-forgot"/>
-                    <Button size="lg" block className="button-forgot">Reset my password</Button>
+                    <Input 
+                      type="text" 
+                       placeholder="Alamat Email Anda" 
+                        //value={this.state.email}
+                        onChange={(e) => this.setState({email: e.target.value})}
+                       className="input-forgot"/>
+                    <Button size="lg" block className="button-forgot" style={{color:'#fff'}} onClick={this.toggleForgot}>Reset my password</Button>
                   </Form>
                 </Col>
               </Row>
@@ -216,10 +435,10 @@ class Login extends Component {
                 <Col md="10" className="catcha-modal">
                   <img src="assets/img/ic_success.png" alt="icon success"/>
                   <h1 className="black">Success!</h1>
-                  <p className="error">Hello there! Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <p className="error">Password baru dikirim ke alamat email anda.</p>
                   <Form>
 
-                    <Button size="lg" block className="button-forgot" onClick={this.toggleDanger}>OK</Button>
+                    <Button size="lg" block className="button-forgot" onClick={this.toggleSuccess} style={{color:'#fff'}}>OK</Button>
                   </Form>
                 </Col>
               </Row>
@@ -240,7 +459,25 @@ class Login extends Component {
                   <Form>
 
                     <Button size="lg" block className="button-danger" onClick={this.toggleDanger}>Back</Button>
+                   
                   </Form>
+                </Col>
+              </Row>
+            </div>
+            </ModalBody>
+
+          </Modal>
+
+          <Modal isOpen={this.state.loading} toggle={this.toggleLoading} className={this.props.className} style={{marginTop:'20%'}} backdrop='static'>
+
+            <ModalBody>
+              <div className="flex-row align-items-center">
+              <Row className="justify-content-center">
+                <Col md="10" className="catcha-modal">
+                  <MDSpinner />
+                  <h1 className="black">Please Wait ...!</h1>
+                 
+                  
                 </Col>
               </Row>
             </div>

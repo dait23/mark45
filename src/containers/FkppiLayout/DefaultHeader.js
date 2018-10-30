@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Badge, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem, NavLink } from 'reactstrap';
 import PropTypes from 'prop-types';
-
+import { Link, withRouter} from 'react-router-dom';
 import { AppHeaderDropdown, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
 import logo from '../../assets/img/brand/logosurvey_s@2x.png'
 
@@ -26,18 +26,20 @@ class DefaultHeader extends Component {
     // eslint-disable-next-line
     const { children, ...attributes } = this.props;
 
-    const todayTime = moment().format('LTS');
-    const today = moment().format('dddd');  
-    const todayDate = moment().format('LL');
+    // const todayTime = moment().format('LTS');
+    // const today = moment().format('dddd');  
+    // const todayDate = moment().format('LL');
 
     return (
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
-
+       
+        <Link to={'/'} >
         <AppNavbarBrand style={{width:200, height:145}}
-          full={{ src: logo, width: 100, height: 17, alt: 'Catcha Logo' }}
-          minimized={{ src: sygnet, width: 30, height: 30, alt: 'CoreUI Logo' }}
+          full={{ src: logo, width: 100, height: 17, alt: 'Logo' }}
+          minimized={{ src: sygnet, width: 30, height: 30, alt: 'Logo' }}
         />
+        </Link>
         <AppSidebarToggler className="d-md-down-none" display="lg" />
 
         
@@ -45,8 +47,8 @@ class DefaultHeader extends Component {
           <div style={{height:52, width:1,background:'#e1e3e4', marginRight:10}}></div>
           <NavItem className="d-md-down-none">
             <div style={{padding:10, textAlign:'right'}}>
-              <span style={{color:'#ffbf20', fontFamily:'Roboto', fontWeight:700, fontSize:16}}>{todayTime}</span><br />
-              <span style={{color:'#adadad', fontFamily:'Roboto', fontWeight:400, fontSize:10}}>{today}, {todayDate}</span>
+              <span style={{color:'#ffbf20', fontFamily:'Roboto', fontWeight:700, fontSize:16}}></span><br />
+              <span style={{color:'#adadad', fontFamily:'Roboto', fontWeight:400, fontSize:10}}></span>
             </div>
             
           </NavItem>

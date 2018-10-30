@@ -1,0 +1,6 @@
+{
+  "name": "Office",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Office.js"
+}

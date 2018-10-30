@@ -183,16 +183,210 @@ const User = Loadable({
   loading: Loading,
 });
 
+
+const FAQ = Loadable({
+  loader: () => import('./views/Fkppi/FAQ/All'),
+  loading: Loading,
+});
+
+const FAQAdd = Loadable({
+  loader: () => import('./views/Fkppi/FAQ/New/'),
+  loading: Loading,
+});
+
+const FAQEdit = Loadable({
+  loader: () => import('./views/Fkppi/FAQ/Edit/'),
+  loading: Loading,
+});
+
+
+
+const Kantor = Loadable({
+  loader: () => import('./views/Fkppi/KantorF/All'),
+  loading: Loading,
+});
+
+const KantorAdd = Loadable({
+  loader: () => import('./views/Fkppi/KantorF/New/'),
+  loading: Loading,
+});
+
+const KantorEdit = Loadable({
+  loader: () => import('./views/Fkppi/KantorF/Edit/'),
+  loading: Loading,
+});
+
+
+
 const News = Loadable({
   loader: () => import('./views/Fkppi/News/All'),
   loading: Loading,
 });
+
+const NewsAdd = Loadable({
+  loader: () => import('./views/Fkppi/News/New/'),
+  loading: Loading,
+});
+
+const NewsEdit = Loadable({
+  loader: () => import('./views/Fkppi/News/Edit/'),
+  loading: Loading,
+});
+
+const ProfileUpdate = Loadable({
+  loader: () => import('./views/Fkppi/Profile/Update'),
+  loading: Loading,
+});
+
+const Komunitas = Loadable({
+  loader: () => import('./views/Fkppi/Komunitas/All'),
+  loading: Loading,
+});
+
+const KomunitasEdit = Loadable({
+  loader: () => import('./views/Fkppi/Komunitas/Edit'),
+  loading: Loading,
+});
+
+const KomunitasNew = Loadable({
+  loader: () => import('./views/Fkppi/Komunitas/New'),
+  loading: Loading,
+});
+
+
+const Hirarki = Loadable({
+  loader: () => import('./views/Fkppi/Hirarki/All'),
+  loading: Loading,
+});
+
+const HirarkiAdd = Loadable({
+  loader: () => import('./views/Fkppi/Hirarki/New'),
+  loading: Loading,
+});
+
+const HirarkiEdit = Loadable({
+  loader: () => import('./views/Fkppi/Hirarki/Edit/'),
+  loading: Loading,
+});
+
+
+const Keanggotaan = Loadable({
+  loader: () => import('./views/Fkppi/Keanggotaan/All'),
+  loading: Loading,
+});
+
+const KeanggotaanAdd = Loadable({
+  loader: () => import('./views/Fkppi/Keanggotaan/New/'),
+  loading: Loading,
+});
+
+const KeanggotaanView = Loadable({
+  loader: () => import('./views/Fkppi/Keanggotaan/View/'),
+  loading: Loading,
+});
+
+const KeanggotaanEdit = Loadable({
+  loader: () => import('./views/Fkppi/Keanggotaan/EditAnggota/'),
+  loading: Loading,
+});
+
+const Verify = Loadable({
+  loader: () => import('./views/Fkppi/Keanggotaan/Verify/'),
+  loading: Loading,
+});
+
+const Active = Loadable({
+  loader: () => import('./views/Fkppi/Keanggotaan/Active/'),
+  loading: Loading,
+});
+
+const KeanggotaanActive = Loadable({
+  loader: () => import('./views/Fkppi/Keanggotaan/AllActive'),
+  loading: Loading,
+});
+
+const KeanggotaanVerify = Loadable({
+  loader: () => import('./views/Fkppi/Keanggotaan/AllVerify'),
+  loading: Loading,
+});
+
+const Member = Loadable({
+  loader: () => import('./views/Fkppi/Report/Member/'),
+  loading: Loading,
+});
+
+const ReportAdmin = Loadable({
+  loader: () => import('./views/Fkppi/Report/Admin'),
+  loading: Loading,
+});
+
+const ReportNews = Loadable({
+  loader: () => import('./views/Fkppi/Report/News/'),
+  loading: Loading,
+});
+
+const ReportMessage = Loadable({
+  loader: () => import('./views/Fkppi/Report/Message/'),
+  loading: Loading,
+});
+
+const Pesan = Loadable({
+  loader: () => import('./views/Fkppi/Pesan/All'),
+  loading: Loading,
+});
+
+const PesanAdd = Loadable({
+  loader: () => import('./views/Fkppi/Pesan/New/'),
+  loading: Loading,
+});
+
+const PesanEdit = Loadable({
+  loader: () => import('./views/Fkppi/Pesan/Edit/'),
+  loading: Loading,
+});
+
+const Banner = Loadable({
+  loader: () => import('./views/Fkppi/Banner/All'),
+  loading: Loading,
+});
+
+const BannerAdd = Loadable({
+  loader: () => import('./views/Fkppi/Banner/New/'),
+  loading: Loading,
+});
+
+const BannerEdit = Loadable({
+  loader: () => import('./views/Fkppi/Banner/Edit/'),
+  loading: Loading,
+});
+
+const Upload = Loadable({
+  loader: () => import('./views/Fkppi/Upload'),
+  loading: Loading,
+});
+
+const Office = Loadable({
+  loader: () => import('./views/Fkppi/Office/All'),
+  loading: Loading,
+});
+
+const OfficeEdit = Loadable({
+  loader: () => import('./views/Fkppi/Office/Edit'),
+  loading: Loading,
+});
+
+const OfficeNew = Loadable({
+  loader: () => import('./views/Fkppi/Office/New'),
+  loading: Loading,
+});
+
 
 
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   { path: '/', exact: true, name: 'Home', component: FkppiLayout },
+  { path: '*', exact: true, name: 'Home', component: FkppiLayout },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },
@@ -233,7 +427,51 @@ const routes = [
   { path: '/charts', name: 'Charts', component: Charts },
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
-  { path: '/news', name: 'News', component: News },
+
+  { path: '/faq', exact: true, name: 'FAQ', component: FAQ },
+  { path: '/faq/add', exact: true, name: 'FAQ ADD', component: FAQAdd },
+  { path: '/faq/edit/:id', exact: true, name: 'FAQ Edit', component: FAQEdit },
+
+  { path: '/berita', exact: true, name: 'News', component: News },
+  { path: '/berita/add', exact: true, name: 'New', component: NewsAdd },
+  { path: '/berita/edit/:id', exact: true, name: 'News Edit', component: NewsEdit },
+
+  { path: '/kantorfkppi', exact: true, name: 'kantorfkppi', component: Kantor },
+  { path: '/kantorfkppi/add', exact: true, name: 'kantorfkppi New', component: KantorAdd },
+  { path: '/kantorfkppi/edit/:id', exact: true, name: 'kantorfkppiEdit', component: KantorEdit },
+
+  { path: '/profile/update', exact: true, name: 'ProfileUpdate', component: ProfileUpdate },
+  
+  { path: '/hirarki', exact: true, name: 'Hirarki', component: Hirarki },
+  { path: '/hirarki/add', exact: true, name: 'Hirarki', component: HirarkiAdd },
+
+  { path: '/keanggotaan', exact: true, name: 'News', component: Keanggotaan },
+  { path: '/keanggotaan/add', exact: true, name: 'New', component: KeanggotaanAdd },
+  { path: '/keanggotaan/edit/:id', exact: true, name: 'Anggota Edit', component: KeanggotaanEdit },
+  { path: '/keanggotaan/view/:id', exact: true, name: 'Anggota View', component: KeanggotaanView },
+  { path: '/keanggotaan/verify/:id', exact: true, name: 'Verify', component: Verify },
+  { path: '/keanggotaan/active/:id', exact: true, name: 'Active', component: Active },
+  { path: '/keanggotaan/active', exact: true, name: 'Anggota Active', component: KeanggotaanActive },
+  { path: '/keanggotaan/verify', exact: true, name: 'Anggota Verify', component: KeanggotaanVerify },
+  { path: '/hirarki/edit/:id', exact: true, name: 'Hirarki Edit', component: HirarkiEdit },
+  { path: '/pesan', exact: true, name: 'News', component: Pesan },
+  { path: '/pesan/add', exact: true, name: 'New', component: PesanAdd },
+  { path: '/pesan/edit/:id', exact: true, name: 'News Edit', component: PesanEdit },
+  { path: '/banner', exact: true, name: 'News', component: Banner },
+  { path: '/banner/add', exact: true, name: 'New', component: BannerAdd },
+  { path: '/banner/edit/:id', exact: true, name: 'News Edit', component: BannerEdit },
+  { path: '/komunitas', exact: true, name: 'Komunitas', component: Komunitas },
+  { path: '/komunitas/add', exact: true, name: 'komunitas add', component: KomunitasNew },
+  { path: '/komunitas/edit/:id', exact: true, name: 'komunitas Edit', component: KomunitasEdit },
+  { path: '/office', exact: true, name: 'office', component: Office },
+  { path: '/office/add', exact: true, name: 'office add', component: OfficeNew },
+  { path: '/office/edit/:id', exact: true, name: 'office Edit', component: OfficeEdit },
+  { path: '/upload', exact: true, name: 'Upload Dashboard', component: Upload },
+  { path: '/report', exact: true, name: 'Report Member', component: Member },
+  { path: '/report/admin', exact: true, name: 'Report Admin', component: ReportAdmin },
+  { path: '/report/news', exact: true, name: 'Report News', component: ReportNews },
+  { path: '/report/message', exact: true, name: 'Report Message', component: ReportMessage },
+  
 ];
 
 export default routes;

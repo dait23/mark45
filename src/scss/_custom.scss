@@ -6,6 +6,12 @@
 @import "fkppi/pages/login.scss";
 
 
+////////////// Component
+
+
+@import "fkppi/components/button.scss";
+
+
 .bg-purple{
 
 background: #1b2b54;  /* fallback for old browsers */
@@ -36,6 +42,12 @@ input:focus {
     background-color: yellow;
 }
 
+.table > tbody > tr > td {
+     vertical-align: middle;
+}
+.table > tbody > tr{
+     vertical-align: middle;
+}
 
 .app {
 
@@ -47,4 +59,20 @@ input:focus {
 
 	height: 100px;
 }
+
+.breadcrumb {
+    position: relative;
+    border-radius: 0;
+    border-bottom: 0px solid #c8ced3;
+}
+
+// .input-group-addon:first-child {
+//     border-right: 0;
+//     width: 40px;
+// }
+// .input-group > .form-control:not(:first-child), .input-group > .custom-select:not(:first-child) {
+//     border-top-left-radius: 0;
+//     border-bottom-left-radius: 0;
+//     height: 30px;
+// }
 

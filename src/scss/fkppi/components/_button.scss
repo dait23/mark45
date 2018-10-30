@@ -1,0 +1,115 @@
+// Here you can add other styles
+//
+// Catcha Styles login Button
+//
+
+
+
+.button-login{
+  background-color: $fkppi-green;
+  border-color: $fkppi-green;
+  border-radius: 1.7px;
+  color: $white;
+
+  &:hover{
+    background-color: $fkppi-green;
+    border-color: $fkppi-green;
+    border-radius: 1.7px;
+    color: $white;
+  }
+
+}
+
+.button-forgot{
+  background-color: $catcha-green;
+  border-color: $catcha-green;
+  font-family: 'Roboto';
+  font-weight: 500;
+  border-radius: 1.7px;
+  font-size: 15px;
+  color: $fkppi-yellow;
+  margin-bottom:30px;
+  &:hover{
+    background-color: $catcha-green;
+    border-color: $catcha-green;
+    border-radius: 1.7px;
+    color: $white;
+  }
+
+}
+
+
+.button-danger{
+  background-color: $catcha-red;
+  border-color: $catcha-red;
+  font-family: 'Roboto';
+  font-weight: 500;
+  border-radius: 1.7px;
+  font-size: 15px;
+  color: $white;
+  margin-bottom:30px;
+  &:hover{
+    background-color: $catcha-red;
+    border-color: $catcha-red;
+    border-radius: 1.7px;
+    color: $white;
+  }
+
+}
+
+
+.button-back{
+  
+  background-color:#000;
+  color:#fff;
+  border-radius: 1.7px;
+  border-color: #000;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 18px;
+  padding:10px 80px;
+   &:hover{
+    background-color: #000;
+    border-color: #000;
+    border-radius: 1.7px;
+    color: $white;
+  }
+}
+
+.button-add{
+  
+  background-color:#ffbf20;
+  color:#fff;
+  border-radius: 1.7px;
+  border-color: #ffbf20;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 18px;
+  padding:10px 80px;
+   &:hover{
+    background-color: #ffbf20;
+    border-color: #ffbf20;
+    border-radius: 1.7px;
+    color: $white;
+  }
+}
+
+
+.button-save{
+  
+  background-color:#01afec;
+  color:#fff;
+  border-radius: 1.7px;
+  border-color: #01afec;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 18px;
+  padding:10px 80px;
+   &:hover{
+    background-color: #01afec;
+    border-color: #01afec;
+    border-radius: 1.7px;
+    color: $white;
+  }
+}
+

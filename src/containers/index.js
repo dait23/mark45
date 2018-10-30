@@ -1,5 +1,5 @@
-import DefaultLayout from './DefaultLayout';
-import CatchaLayout from './CatchaLayout';
+// import DefaultLayout from './DefaultLayout';
+// import CatchaLayout from './CatchaLayout';
 import FkppiLayout from './FkppiLayout';
 
-export { DefaultLayout, CatchaLayout, FkppiLayout };
+export {FkppiLayout };
