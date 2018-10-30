@@ -91,7 +91,7 @@ logout(){
       return(
 
 
-        <ol className="breadcrumb"><li className="breadcrumb-item"><a href="/fkppi/">Home</a></li><li className="active breadcrumb-item" aria-current="page">{path}</li></ol>
+        <ol className="breadcrumb"><li className="breadcrumb-item"><a href="/">Home</a></li><li className="active breadcrumb-item" aria-current="page">{path}</li></ol>
 
       )
 
@@ -101,7 +101,7 @@ logout(){
       return(
 
 
-        <ol className="breadcrumb"><li className="breadcrumb-item"><a href="/fkppi/">Home</a></li><li className="breadcrumb-item" aria-current="page"><a href={`/fkppi/${path}`}>{path}</a></li><li className="active breadcrumb-item" aria-current="page">{pathx}</li></ol>
+        <ol className="breadcrumb"><li className="breadcrumb-item"><a href="/">Home</a></li><li className="breadcrumb-item" aria-current="page"><a href={`/${path}`}>{path}</a></li><li className="active breadcrumb-item" aria-current="page">{pathx}</li></ol>
 
       )
 
